@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  --color-primary: #D48E98;
+  --color-secondary: #313934;
+  --color-background: #F2EFF5;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--color-background) !important
+}
+
+h1 {
+  color: var(--color-secondary) !important
+}
+
+.grid-recipe-cards {
+  display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-auto-flow: column;
+  // grid-auto-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+  grid-gap: 1em;
+  margin: 1em;
+}
