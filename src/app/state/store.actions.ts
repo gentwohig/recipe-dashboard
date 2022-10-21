@@ -28,3 +28,7 @@ export const addToFavorites = createAction(
 // remove recipe to favourites
 
 // add comment to recipe
+export const addComment = createAction(
+  "[Recipes] Added Comment to Recipe",
+  props<{ recipeID: string, comment: string }>()
+);

@@ -4,5 +4,6 @@ export interface Recipe {
   dish: string,
   description: string,
   ingredient: string,
-  measurement: string
+  measurement: string,
+  comments: string[]
 }

@@ -1,7 +1,7 @@
 <p>recipe-list works!</p>
 <button [routerLink]="'/favorites-list'">Favorites List</button>
 <div class="grid-recipe-cards">
-  <div *ngFor="let recipe of allRecipes$ | async" >
+  <div *ngFor="let recipe of allRecipes$ | async; index as i" >
     <mat-card>
       <mat-card-title>{{recipe.dish}}</mat-card-title>
       <mat-card-subtitle>{{ recipe.ingredient }}</mat-card-subtitle>
@@ -10,8 +10,13 @@
         <button (click)="addToFavorites(recipe.uid)" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
           <mat-icon>favorite</mat-icon>
         </button>
-        <input type="text" [formControl]="comment" id="{{recipe.uid}}">
-        <p>{{ comment.value }}</p>
+        <!-- <button (click)="addCommentInputField()">Add comment</button> -->
+        <div *ngFor="let comment of recipe.comments;">
+          {{comment}}
+        </div>
+          <input [formControl]="getFormConrole(recipe.uid)" id="recipe.id"/>
+          {{ getFormConrole(recipe.uid).value }}
+          <button (click)="addComment(recipe.uid, getFormConrole(recipe.uid).value)">Submit comment</button>
       </mat-card-actions>
     </mat-card>
   </div>
