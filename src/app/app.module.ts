@@ -1,25 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+
+// Services
+import { FoodService } from './services/food.service';
 
 // MATERIAL IMPORTS
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { FoodService } from './services/food.service';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { EffectsModule } from '@ngrx/effects';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 
 // store
 import { storeReducer } from './state/store.reducer';
 import { StoreEffects } from './state/store.effects';
-import { FavoritesListComponent } from './favorites-list/favorites-list.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 
 @NgModule({
@@ -27,6 +32,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
     AppComponent,
     RecipeListComponent,
     FavoritesListComponent,
+    RecipeCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,8 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatInputModule,
     StoreModule.forRoot({ store: storeReducer }, {}),
     EffectsModule.forRoot([StoreEffects]),
   ],

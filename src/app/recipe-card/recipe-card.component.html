@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title>{{recipe.dish}}</mat-card-title>
+    <mat-card-subtitle>{{ recipe.ingredient }}</mat-card-subtitle>
+    <button (click)="addToFavorites(recipe.uid)" mat-icon-button color="warn"
+      aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-title-group>
+  <mat-card-content>{{ recipe.description }}</mat-card-content>
+  <div class="comment-section">
+    <mat-form-field class="input-field" appearance="fill">
+      <mat-label>Comment</mat-label>
+      <input matInput type="text" [formControl]="getFormConrol(recipe.uid)" id="recipe.id" />
+    </mat-form-field>
+    <button mat-raised-button class="add-comment-btn" (click)="addComment(recipe.uid, getFormConrol(recipe.uid).value)">
+      Add comment
+    </button>
+  </div>
+  <div *ngFor="let comment of recipe.comments;">
+    {{comment}}
+  </div>
+</mat-card>

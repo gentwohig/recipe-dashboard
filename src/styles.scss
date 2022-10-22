@@ -23,4 +23,5 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
   grid-gap: 1em;
   margin: 1em;
+  min-width: 200px;
 }

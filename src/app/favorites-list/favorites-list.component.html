@@ -1,17 +1,5 @@
-<p>favorites-list works!</p>
 <div class="grid-recipe-cards">
   <div *ngFor="let recipe of allFavRecipes">
-    <mat-card>
-      <mat-card-title>{{recipe.dish}}</mat-card-title>
-      <mat-card-subtitle>{{ recipe.ingredient }}</mat-card-subtitle>
-      <mat-card-content>{{ recipe.description }}</mat-card-content>
-      <mat-card-actions>
-        <button  mat-icon-button color="warn"
-          aria-label="Example icon button with a heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <input type="text">
-      </mat-card-actions>
-    </mat-card>
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
 </div>

@@ -1,0 +1,17 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: var(--color-background)
+}
+
+.favorites-link {
+  text-decoration: none;
+  color: white;
+  background-color: var(--color-primary);
+  padding: 0.2em 0.9em;
+  margin: 0.5em;
+  border-radius: 25px;
+  font-size: 0.8em;
+}
