@@ -11,6 +11,7 @@ import { Recipe } from '../food.model';
 export class FavoritesListComponent implements OnInit {
 
   allFavRecipes: Recipe[] = []
+  status: boolean = true;
   constructor(private store: Store<AppState>) {
   }
 

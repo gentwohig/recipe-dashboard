@@ -1,5 +1,7 @@
 <div class="grid-recipe-cards">
-  <div *ngFor="let recipe of allFavRecipes">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  <div *ngFor="let recipe of allFavRecipes;">
+    <span *ngIf="status == true">
+      <app-recipe-card [recipe]="recipe" [(favoriteStatus)]="status"></app-recipe-card>
+    </span>
   </div>
 </div>

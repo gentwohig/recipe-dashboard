@@ -2,8 +2,11 @@
   <mat-card-title-group>
     <mat-card-title>{{recipe.dish}}</mat-card-title>
     <mat-card-subtitle>{{ recipe.ingredient }}</mat-card-subtitle>
-    <button (click)="addToFavorites(recipe.uid)" mat-icon-button color="warn"
-      aria-label="Example icon button with a heart icon">
+    <button
+      (click)="addToFavorites(recipe.uid)"
+      mat-icon-button
+      [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}"
+      aria-label="Button to favorite a recipe">
       <mat-icon>favorite</mat-icon>
     </button>
   </mat-card-title-group>

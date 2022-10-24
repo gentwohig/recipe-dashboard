@@ -1,1 +1,15 @@
+.top-section {
+  display: grid;
+  margin-left: 1em;
+  // place-content: center;
+}
 
+.categories-section {
+  display: grid;
+  max-width: 50rem;
+  text-align: center;
+  border-radius: 25px;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+}

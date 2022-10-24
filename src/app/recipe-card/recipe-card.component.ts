@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../food.model';
 import { addToFavorites, addComment } from '../state/store.actions';
 import { Store } from '@ngrx/store';
@@ -21,15 +21,20 @@ export class RecipeCardComponent implements OnInit {
     comments: []
   }
 
+  @Input() favoriteStatus: boolean = false;
+  @Output() favoriteStatusChange = new EventEmitter<boolean>();
+
   recipeComments: any = {};
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
   }
 
   addToFavorites(recipeID: string) {
-    this.store.dispatch(addToFavorites({ recipeID }))
+    this.store.dispatch(addToFavorites({ recipeID }));
+    this.favoriteStatus = !this.favoriteStatus;
+    this.favoriteStatusChange.emit(this.favoriteStatus)
   }
 
   getFormConrol(recipeID: string) {
