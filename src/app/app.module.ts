@@ -25,6 +25,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 import { storeReducer } from './state/store.reducer';
 import { StoreEffects } from './state/store.effects';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
     RecipeListComponent,
     FavoritesListComponent,
     RecipeCardComponent,
+    RecipeDetailsComponent,
   ],
   imports: [
     BrowserModule,

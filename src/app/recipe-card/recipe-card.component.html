@@ -19,6 +19,9 @@
     <button mat-raised-button class="add-comment-btn" (click)="addComment(recipe.uid, getFormConrol(recipe.uid).value)">
       Add comment
     </button>
+    <button mat-stroked-button [routerLink]="['/recipe', recipe.id]">
+      View Details
+    </button>
   </div>
   <div *ngFor="let comment of recipe.comments;">
     {{comment}}

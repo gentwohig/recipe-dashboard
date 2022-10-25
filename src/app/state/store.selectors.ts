@@ -11,3 +11,11 @@ export const selectAllRecipes = createSelector(
     return state.recipes;
   }
 )
+
+// select recipe by ID
+export const selectRecipeByID = (id: any) => createSelector(
+  selectStore,
+  (state: StoreState) => {
+    return state.recipes.find(recipe => recipe.id === id)
+  }
+)
