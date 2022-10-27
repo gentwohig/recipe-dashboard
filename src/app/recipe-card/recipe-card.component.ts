@@ -44,12 +44,6 @@ export class RecipeCardComponent implements OnInit {
 
   addComment(recipeID: string, comment: string) {
     this.store.dispatch(addComment({ recipeID, comment }))
-    this.store.subscribe(state => {
-      state.store.recipes.filter((recipe) => {
-        // if(recipe.uid === recipeID) console.log(recipe)
-      })
-    })
-    console.log(this.recipeComments)
   }
 
 }

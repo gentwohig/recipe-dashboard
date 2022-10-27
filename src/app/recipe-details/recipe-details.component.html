@@ -23,15 +23,15 @@
         <p class="recipe-ingredient">{{ recipeData.ingredient }}</p>
       </div>
     </div>
-    <!-- <div class="comment-section">
+    <div class="comment-section">
       <mat-form-field class="input-field" appearance="fill">
         <mat-label>Comment</mat-label>
-        <input matInput type="text" [formControl]="getFormConrol(recipe.uid)" id="recipe.id" />
+        <input matInput type="text" [formControl]="getFormConrol(recipeData.uid)" id="recipe.id" />
       </mat-form-field>
-      <button mat-raised-button class="add-comment-btn" (click)="addComment(recipe.uid, getFormConrol(recipe.uid).value)">
+      <button mat-raised-button class="add-comment-btn" (click)="addComment(recipeData.uid, getFormConrol(recipeData.uid).value)">
         Add comment
       </button>
-    </div> -->
+    </div>
     <div *ngFor="let comment of recipeData.comments;">
       {{comment}}
     </div>

@@ -1,29 +1,14 @@
-<mat-card>
+<mat-card class="recipe-card">
+  <button (click)="addToFavorites(recipe.uid)" mat-icon-button
+    [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}" aria-label="Button to favorite a recipe">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <div class="recipe-image"></div>
   <mat-card-title-group>
     <mat-card-title>{{recipe.dish}}</mat-card-title>
-    <mat-card-subtitle>{{ recipe.ingredient }}</mat-card-subtitle>
-    <button
-      (click)="addToFavorites(recipe.uid)"
-      mat-icon-button
-      [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}"
-      aria-label="Button to favorite a recipe">
-      <mat-icon>favorite</mat-icon>
-    </button>
+
   </mat-card-title-group>
-  <mat-card-content>{{ recipe.description }}</mat-card-content>
-  <div class="comment-section">
-    <mat-form-field class="input-field" appearance="fill">
-      <mat-label>Comment</mat-label>
-      <input matInput type="text" [formControl]="getFormConrol(recipe.uid)" id="recipe.id" />
-    </mat-form-field>
-    <button mat-raised-button class="add-comment-btn" (click)="addComment(recipe.uid, getFormConrol(recipe.uid).value)">
-      Add comment
-    </button>
-    <button mat-stroked-button [routerLink]="['/recipe', recipe.id]">
-      View Details
-    </button>
-  </div>
-  <div *ngFor="let comment of recipe.comments;">
-    {{comment}}
-  </div>
+  <button mat-stroked-button [routerLink]="['/recipe', recipe.id]">
+    View Details
+  </button>
 </mat-card>

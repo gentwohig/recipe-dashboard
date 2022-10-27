@@ -1,3 +1,10 @@
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+  align-items: center;
+}
+
 .input-field {
   // max-width: 150px;
 }
@@ -12,9 +19,18 @@
 }
 
 .empty {
-  color: grey; 
+  color: grey;
 }
 
 .full {
   color: red;
+}
+
+.recipe-image {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
 }
