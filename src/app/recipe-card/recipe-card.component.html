@@ -1,14 +1,24 @@
 <mat-card class="recipe-card">
-  <button (click)="addToFavorites(recipe.uid)" mat-icon-button
-    [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}" aria-label="Button to favorite a recipe">
+  <button
+    class="favorite-button"
+    (click)="addToFavorites(recipe.uid)"
+    mat-icon-button
+    [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}"
+    aria-label="Button to favorite a recipe">
     <mat-icon>favorite</mat-icon>
   </button>
-  <div class="recipe-image"></div>
-  <mat-card-title-group>
-    <mat-card-title>{{recipe.dish}}</mat-card-title>
-
-  </mat-card-title-group>
-  <button mat-stroked-button [routerLink]="['/recipe', recipe.id]">
-    View Details
-  </button>
+    <div class="recipe-image">
+      <img [src]="recipeImage"/>
+    </div>
+    <h1 class="recipe-dish-title">{{recipe.dish}}</h1>
+    <div class="recipe-details">
+      <p>{{ cookingTime }} min</p>
+      <div class="star-container">
+        <div class="star"></div>
+      </div>
+      <p>{{ recipeRating }}</p>
+    </div>
+    <button class="view-details-button" mat-stroked-button [routerLink]="['/recipe', recipe.id]">
+      View Details
+    </button>
 </mat-card>

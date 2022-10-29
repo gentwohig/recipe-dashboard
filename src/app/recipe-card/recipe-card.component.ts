@@ -20,15 +20,22 @@ export class RecipeCardComponent implements OnInit {
     measurement: '',
     comments: []
   }
+  @Input() recipeImage: string = '';
 
   @Input() favoriteStatus: boolean = false;
   @Output() favoriteStatusChange = new EventEmitter<boolean>();
 
   recipeComments: any = {};
 
+  cookingTime: number = 10;
+  recipeRating: number = 4.5;
+
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.cookingTime = Math.floor((Math.random() * 120) + 10);
+    let randomRating = ((Math.random() * 5) + 1)
+    this.recipeRating = Math.round(randomRating * 10) / 10;
   }
 
   addToFavorites(recipeID: string) {

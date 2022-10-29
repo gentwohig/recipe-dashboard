@@ -47,10 +47,11 @@ export class RecipeDetailsComponent implements OnInit {
     if (this.recipeData.id === 0) this.router.navigate(['/recipe-list']);
   }
 
-  getFormConrol(recipeID: string) {
+  getFormControl(recipeID: string) {
     if (!this.recipeComments[recipeID]) this.recipeComments[recipeID] = new FormControl();
     return this.recipeComments[recipeID]
   }
+
 
   addComment(recipeID: string, comment: string) {
     this.store.dispatch(addComment({ recipeID, comment }))

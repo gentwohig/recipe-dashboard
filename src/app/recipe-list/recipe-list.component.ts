@@ -17,10 +17,23 @@ export class RecipeListComponent implements OnInit {
 
   allRecipes$ = this.store.select(selectAllRecipes)
 
+  recipeImages = ['/assets/American pancake_Isometric.png',
+    '/assets/Fast food_Isometric (1).png',
+    '/assets/Fast food_Isometric.png',
+    '/assets/Meal_Isometric (1).png',
+    '/assets/Meal_Isometric.png',
+    '/assets/Sushi roll_Isometric.png',
+    '/assets/Toast_Isometric.png']
+
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.store.dispatch(loadRecipes())
+  }
+
+  randomRecipeImage() {
+    let index = Math.floor((Math.random() * 6) + 0)
+    return this.recipeImages[index]
   }
 
 

@@ -16,8 +16,8 @@
   </div>
 </div>
 <div class="grid-recipe-cards">
-  <div *ngFor="let recipe of allRecipes$ | async;" >
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  <div *ngFor="let recipe of allRecipes$ | async; index as i" >
+    <app-recipe-card [recipe]="recipe" [recipeImage]="randomRecipeImage()"></app-recipe-card>
   </div>
 </div>
 </div>

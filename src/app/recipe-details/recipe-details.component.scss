@@ -1,15 +1,11 @@
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));;
-  height: 100vw;
+  height: calc(100% - 64px);
 }
 
 .recipe-card {
-  // height: 100vw;
-}
-
-.recipe-image {
-  background-color: red;
+  padding: 1rem;
 }
 
 .recipe-ingredient {
@@ -28,4 +24,70 @@ h3, h4 {
 
 .comment-section {
   display: grid;
+}
+
+.posted-comments-section {
+  background-color: white;
+  height: 15rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.comment {
+  background-color: lightgray;
+  border-radius: .5rem;
+  width: max-content;
+  padding: .5rem;
+  margin-top: 0.5rem;
+}
+
+.add-comment-button {
+  appearance: button;
+  background-color: var(--color-primary);
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.add-comment-button:focus {
+  text-decoration: none;
+}
+
+.add-comment-button:hover {
+  text-decoration: none;
+}
+
+.add-comment-button:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.add-comment-button:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .add-comment-button {
+    padding: 12px 50px;
+  }
 }

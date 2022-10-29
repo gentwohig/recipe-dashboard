@@ -1,13 +1,7 @@
 <div class="container">
-  <mat-card *ngIf="recipeData" class="recipe-card">
-    <mat-card-title-group>
-      <mat-card-title>{{recipeData.dish}}</mat-card-title>
-      <mat-card-subtitle>{{ recipeData.description }}</mat-card-subtitle>
-      <!-- <button (click)="addToFavorites(recipe.uid)" mat-icon-button
-        [ngClass]="{'full' : favoriteStatus, 'empty': !favoriteStatus}" aria-label="Button to favorite a recipe">
-        <mat-icon>favorite</mat-icon>
-      </button> -->
-    </mat-card-title-group>
+  <div *ngIf="recipeData" class="recipe-card">
+      <h1>{{recipeData.dish}}</h1>
+      <p>{{ recipeData.description }}</p>
     <div class="cooking-details">
       <div>
         <h4>Cooking Time</h4>
@@ -18,25 +12,28 @@
       <div>
         <h3>Ingredients</h3>
         <p class="recipe-ingredient">{{ recipeData.ingredient }}</p>
-        <p class="recipe-ingredient">{{ recipeData.ingredient }}</p>
-        <p class="recipe-ingredient">{{ recipeData.ingredient }}</p>
-        <p class="recipe-ingredient">{{ recipeData.ingredient }}</p>
       </div>
     </div>
     <div class="comment-section">
       <mat-form-field class="input-field" appearance="fill">
         <mat-label>Comment</mat-label>
-        <input matInput type="text" [formControl]="getFormConrol(recipeData.uid)" id="recipe.id" />
+        <input matInput type="text" [formControl]="getFormControl(recipeData.uid)" id="recipe.id" />
       </mat-form-field>
-      <button mat-raised-button class="add-comment-btn" (click)="addComment(recipeData.uid, getFormConrol(recipeData.uid).value)">
+      <button
+        mat-raised-button
+        class="add-comment-button"
+        (click)="addComment(recipeData.uid, getFormControl(recipeData.uid).value);"
+        [disabled]="recipeData.comments.length > 4">
         Add comment
       </button>
     </div>
-    <div *ngFor="let comment of recipeData.comments;">
-      {{comment}}
+    <div class="posted-comments-section">
+      <div *ngFor="let comment of recipeData.comments">
+        <div class="comment">
+          {{ comment }}
+        </div>
+      </div>
     </div>
-  </mat-card>
-  <div class="recipe-image">
-
   </div>
+  <img src="/assets/recipe-details-image.jpg"/>
 </div>
