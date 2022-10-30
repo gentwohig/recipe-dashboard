@@ -24,7 +24,11 @@ export class FavoritesListComponent implements OnInit {
         return foundFavRecipe as Recipe
       })
     })
-    console.log(this.allFavRecipes)
+    // When you click back to recipe list from the favorites page, recipes gets reloaded with new data.
+    // So the recipes in the favorites do not exist anymore.
+    // If you favorite another item again there will be recipes that do not exist.
+    // This is a check to make sure there are no undefines
+    this.allFavRecipes = this.allFavRecipes.filter(recipe => recipe != undefined)
   }
 
 }

@@ -20,7 +20,7 @@ export class RecipeCardComponent implements OnInit {
     measurement: '',
     comments: []
   }
-  @Input() recipeImage: string = '';
+  // @Input() recipeImage: string = '';
 
   @Input() favoriteStatus: boolean = false;
   @Output() favoriteStatusChange = new EventEmitter<boolean>();
@@ -29,6 +29,15 @@ export class RecipeCardComponent implements OnInit {
 
   cookingTime: number = 10;
   recipeRating: number = 4.5;
+
+  recipeImages = ['/assets/American pancake_Isometric.png',
+    '/assets/Fast food_Isometric (1).png',
+    '/assets/Fast food_Isometric.png',
+    '/assets/Meal_Isometric (1).png',
+    '/assets/Meal_Isometric.png',
+    '/assets/Sushi roll_Isometric.png',
+    '/assets/Toast_Isometric.png']
+
 
   constructor(private store: Store<AppState>) {}
 

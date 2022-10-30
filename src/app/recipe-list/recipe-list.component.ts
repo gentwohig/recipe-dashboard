@@ -3,8 +3,7 @@ import { FoodService } from '../services/food.service';
 import { Recipe } from '../food.model';
 import { Store } from '@ngrx/store';
 import { selectAllRecipes } from '../state/store.selectors';
-import { loadRecipes, addToFavorites, addComment } from '../state/store.actions';
-import { FormArray, FormControl } from '@angular/forms';
+import { loadRecipes } from '../state/store.actions';
 import { AppState } from '../state/app.state'
 
 @Component({
@@ -17,25 +16,13 @@ export class RecipeListComponent implements OnInit {
 
   allRecipes$ = this.store.select(selectAllRecipes)
 
-  recipeImages = ['/assets/American pancake_Isometric.png',
-    '/assets/Fast food_Isometric (1).png',
-    '/assets/Fast food_Isometric.png',
-    '/assets/Meal_Isometric (1).png',
-    '/assets/Meal_Isometric.png',
-    '/assets/Sushi roll_Isometric.png',
-    '/assets/Toast_Isometric.png']
+  
+
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.store.dispatch(loadRecipes())
   }
-
-  randomRecipeImage() {
-    let index = Math.floor((Math.random() * 6) + 0)
-    return this.recipeImages[index]
-  }
-
-
 
 }
