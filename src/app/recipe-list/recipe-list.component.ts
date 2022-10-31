@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from '../services/food.service';
 import { Recipe } from '../food.model';
 import { Store } from '@ngrx/store';
 import { selectAllRecipes } from '../state/store.selectors';
 import { loadRecipes } from '../state/store.actions';
 import { AppState } from '../state/app.state'
+
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,13 +16,21 @@ export class RecipeListComponent implements OnInit {
 
   allRecipes$ = this.store.select(selectAllRecipes)
 
-  
-
+  display: boolean = true;
+  searchParam = "";
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.store.dispatch(loadRecipes())
+    this.store.dispatch(loadRecipes());
   }
 
+  setSearch(value:string) {
+    this.searchParam = value.toLowerCase();
+  }
+
+  searchForARecipe(recipe: Recipe, searchParam: string) {
+    if(!searchParam) return true
+    return recipe.dish.toLowerCase().includes(searchParam)
+  }
 }

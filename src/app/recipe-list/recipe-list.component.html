@@ -3,9 +3,9 @@
   <header>
     <h1>Easy to cook menu</h1>
   </header>
-  <mat-form-field appearance="fill">
+  <mat-form-field  appearance="fill" class="search-recipes">
     <mat-label>Search for your perfect recipe</mat-label>
-    <input matInput type="text" />
+    <input #box (keyup)="setSearch(box.value)" name="search" matInput type="text" />
   </mat-form-field>
   <h2>Category</h2>
   <div class="categories-section">
@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="grid-recipe-cards">
-  <div *ngFor="let recipe of allRecipes$ | async;" >
+  <div *ngFor="let recipe of allRecipes$ | async | callback : searchParam : searchForARecipe" >
     <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
 </div>

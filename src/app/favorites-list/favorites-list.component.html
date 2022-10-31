@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Favorite Recipes</h1>
+  <p *ngIf="allFavRecipes.length == 0">No recipes have been favorited.</p>
   <div class="grid-recipe-cards">
     <div *ngFor="let recipe of allFavRecipes;">
       <span *ngIf="status == true">

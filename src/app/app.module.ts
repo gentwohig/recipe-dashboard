@@ -26,6 +26,7 @@ import { storeReducer } from './state/store.reducer';
 import { StoreEffects } from './state/store.effects';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { CallbackPipe } from './pipes/callback.pipe';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     FavoritesListComponent,
     RecipeCardComponent,
     RecipeDetailsComponent,
+    CallbackPipe,
   ],
   imports: [
     BrowserModule,
