@@ -20,15 +20,12 @@ export class RecipeCardComponent implements OnInit {
     measurement: '',
     comments: []
   }
-  // @Input() recipeImage: string = '';
 
   @Input() favoriteStatus: boolean = false;
   @Output() favoriteStatusChange = new EventEmitter<boolean>();
 
-  recipeComments: any = {};
-
-  cookingTime: number = 10;
-  recipeRating: number = 4.5;
+  public cookingTime: number = 10;
+  public recipeRating: number = 4.5;
 
   recipeImages = ['/assets/American pancake_Isometric.png',
     '/assets/Fast food_Isometric (1).png',
@@ -39,7 +36,7 @@ export class RecipeCardComponent implements OnInit {
     '/assets/Toast_Isometric.png']
 
 
-  constructor(private store: Store<AppState>) {}
+  constructor(public store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.cookingTime = Math.floor((Math.random() * 120) + 10);
@@ -52,14 +49,4 @@ export class RecipeCardComponent implements OnInit {
     this.favoriteStatus = !this.favoriteStatus;
     this.favoriteStatusChange.emit(this.favoriteStatus)
   }
-
-  getFormConrol(recipeID: string) {
-    if (!this.recipeComments[recipeID]) this.recipeComments[recipeID] = new FormControl();
-    return this.recipeComments[recipeID]
-  }
-
-  addComment(recipeID: string, comment: string) {
-    this.store.dispatch(addComment({ recipeID, comment }))
-  }
-
 }

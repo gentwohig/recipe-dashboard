@@ -6,6 +6,7 @@ import { AppState } from '../state/app.state';
 import { selectRecipeByID } from '../state/store.selectors';
 import { addToFavorites, addComment } from '../state/store.actions';
 import { FormControl } from '@angular/forms';
+import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss']
 })
-export class RecipeDetailsComponent implements OnInit {
+export class RecipeDetailsComponent extends RecipeCardComponent implements OnInit {
 
   ID = Number(this.route.snapshot.paramMap.get('id'));
 
@@ -36,11 +37,13 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<AppState>,
+    public appStore: Store<AppState>,
     private router: Router) {
-   }
+    super(appStore);
+  }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
+    super.ngOnInit();
   }
 
   ngAfterViewInit() {
@@ -52,9 +55,8 @@ export class RecipeDetailsComponent implements OnInit {
     return this.recipeComments[recipeID]
   }
 
-
   addComment(recipeID: string, comment: string) {
-    this.store.dispatch(addComment({ recipeID, comment }))
+    this.appStore.dispatch(addComment({ recipeID, comment }))
   }
 
 }
