@@ -96,3 +96,12 @@ h3, h4 {
     padding: 12px 50px;
   }
 }
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.recipe-image {
+  max-height: 50vw;
+}
