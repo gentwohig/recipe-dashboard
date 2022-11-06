@@ -1,10 +1,11 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { StoreState } from './store.reducer';
 import { AppState } from './app.state'
+import { state } from '@angular/animations';
 
 export const selectStore = (state: AppState) => state.store;
 
-// select all coffee products
+// select all recipe products
 export const selectAllRecipes = createSelector(
   selectStore,
   (state) => {

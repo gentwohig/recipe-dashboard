@@ -109,5 +109,10 @@
       }
     }
   },
-  "defaultProject": "recipe-dashboard"
+  "defaultProject": "recipe-dashboard",
+  "cli": {
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
+  }
 }

@@ -1,23 +1,23 @@
 <div class="container">
-<div class="top-section">
-  <header>
-    <h1 class="mat-display-3">Easy to cook menu</h1>
-  </header>
-  <mat-form-field  appearance="fill" class="search-recipes">
-    <mat-label>Search for your perfect recipe</mat-label>
-    <input #box (keyup)="setSearch(box.value)" name="search" matInput type="text"/>
-  </mat-form-field>
-  <h2>Category</h2>
-  <div class="categories-section">
-    <mat-card>All</mat-card>
-    <mat-card>Breakfast</mat-card>
-    <mat-card>Asian Food</mat-card>
-    <mat-card>Italian</mat-card>
+  <div class="top-section">
+    <header>
+      <h1 class="mat-display-3">Easy to cook menu</h1>
+    </header>
+    <mat-form-field  appearance="fill" class="search-recipes">
+      <mat-label>Search for your perfect recipe</mat-label>
+      <input #box (keyup)="setSearch(box.value)" name="search" matInput type="text"/>
+    </mat-form-field>
+    <h2>Category</h2>
+    <div class="categories-section">
+      <mat-card>All</mat-card>
+      <mat-card>Breakfast</mat-card>
+      <mat-card>Asian Food</mat-card>
+      <mat-card>Italian</mat-card>
+    </div>
   </div>
-</div>
-<div class="grid-recipe-cards">
-  <div *ngFor="let recipe of allRecipes$ | async | callback : searchParam : searchForARecipe" >
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  <div class="grid-recipe-cards">
+    <div *ngFor="let recipe of allRecipes$ | async | callback : searchParam : searchForARecipe" >
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
   </div>
-</div>
 </div>

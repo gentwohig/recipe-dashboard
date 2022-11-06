@@ -1,0 +1,30 @@
+<div>
+  <!-- TOOLBAR -->
+  <mat-toolbar class="toolbar">
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <a [routerLink]="'/favorites-list'" class="favorites-link">Favorite Recipes</a>
+  </mat-toolbar>
+  <!-- SIDE NAVIGATION -->
+  <mat-drawer-container>
+    <mat-drawer #drawer class="drawer">
+      <div class="example-sidenav">
+        <button mat-button [routerLink]="'/login'">
+          Login
+        </button>
+        <button mat-button>
+          Logout
+        </button>
+        <button mat-button [routerLink]="'/recipe-list'">
+          Recipes
+        </button>
+      </div>
+    </mat-drawer>
+    <div style="background-color: var(--color-background);">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>

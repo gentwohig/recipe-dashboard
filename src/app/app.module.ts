@@ -6,6 +6,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthModule } from './auth/auth.module';
 
 // Services
 import { FoodService } from './services/food.service';
@@ -16,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider'
 
 import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
@@ -27,6 +30,7 @@ import { StoreEffects } from './state/store.effects';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { CallbackPipe } from './pipes/callback.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -37,6 +41,7 @@ import { CallbackPipe } from './pipes/callback.pipe';
     RecipeCardComponent,
     RecipeDetailsComponent,
     CallbackPipe,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,9 @@ import { CallbackPipe } from './pipes/callback.pipe';
     ReactiveFormsModule,
     MatToolbarModule,
     MatInputModule,
+    MatSidenavModule,
+    MatDividerModule,
+    AuthModule,
     StoreModule.forRoot({ store: storeReducer }, {}),
     EffectsModule.forRoot([StoreEffects]),
   ],

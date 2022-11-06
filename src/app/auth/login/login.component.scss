@@ -1,0 +1,17 @@
+.container {
+  height: 100vw;
+  padding: 1rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  // align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  gap: 1rem;
+} 
