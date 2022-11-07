@@ -14,4 +14,10 @@
   display: grid;
   grid-template-columns: repeat(auto, 1fr);
   gap: 1rem;
-} 
+}
+
+.login-button {
+  background-color: var(--color-primary);
+  color: white;
+  margin-top: 1rem;
+}

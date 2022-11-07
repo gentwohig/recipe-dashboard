@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthModule } from './auth/auth.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 // Services
 import { FoodService } from './services/food.service';
@@ -58,6 +59,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatDividerModule,
     AuthModule,
     StoreModule.forRoot({ store: storeReducer }, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: false }),
     EffectsModule.forRoot([StoreEffects]),
   ],
   providers: [FoodService],

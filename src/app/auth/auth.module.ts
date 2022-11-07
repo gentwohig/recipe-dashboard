@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { StoreModule } from '@ngrx/store';
-import * as fromAuth from '../reducers';
+import * as fromAuth from './reducers';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatButtonModule } from '@angular/material/button';
+import { authReducer } from './auth.reducer';
 
 
 @NgModule({
@@ -16,8 +17,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MatCardModule,
     MatFormFieldModule,
-    // StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers, { metaReducers: fromAuth.metaReducers }),
-    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers),
+    MatButtonModule,
+    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.authReducer),
+    // StoreModule.forRoot({state: authReducer})
+    // StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers, authReducer),
+    // StoreModule.forFeature({ store: authReducer }),
   ]
 })
 export class AuthModule { }
