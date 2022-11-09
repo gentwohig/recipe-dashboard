@@ -18,14 +18,11 @@ export const authFeatureKey = 'auth';
 // }
 
 export interface AuthState {
-  user: User
+  user: User | undefined
 }
 
 export const initialAuthState: AuthState = {
-  user: {
-    id: '0',
-    email: 'test@email.com',
-  }
+  user: undefined
 };
 
 export const authReducer = createReducer(

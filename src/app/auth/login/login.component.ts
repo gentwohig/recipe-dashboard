@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.subscribe(state => console.log(state))
+    // this.store.subscribe(state => console.log(state))
   }
 
   login() {

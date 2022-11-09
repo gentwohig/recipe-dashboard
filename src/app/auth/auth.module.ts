@@ -6,7 +6,6 @@ import * as fromAuth from './reducers';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { authReducer } from './auth.reducer';
 
 
 @NgModule({

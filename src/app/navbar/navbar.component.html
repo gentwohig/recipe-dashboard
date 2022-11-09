@@ -12,10 +12,10 @@
   <mat-drawer-container>
     <mat-drawer #drawer class="drawer">
       <div class="example-sidenav">
-        <button mat-button [routerLink]="'/login'">
+        <button mat-button [routerLink]="'/login'" *ngIf="isLoggedOut$ | async">
           Login
         </button>
-        <button mat-button>
+        <button mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">
           Logout
         </button>
         <button mat-button [routerLink]="'/recipe-list'">
