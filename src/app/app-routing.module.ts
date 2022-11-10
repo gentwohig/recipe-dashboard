@@ -4,13 +4,15 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'recipe-list', component: RecipeListComponent },
+  { path: 'recipe-list', component: RecipeListComponent, canActivate: [AuthGuard] },
   { path: 'favorites-list', component: FavoritesListComponent },
   { path: 'recipe/:id', component: RecipeDetailsComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/recipe-list', pathMatch: 'full' }
+  { path: '', redirectTo: '/recipe-list', pathMatch: 'full' },
+  { path: '**', redirectTo: '/'}
 
 ];
 

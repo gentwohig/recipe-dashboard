@@ -9,7 +9,8 @@ import {
 } from '@ngrx/store';
 // import { environment } from '../../environments/environment';
 import { User } from '../model/user.model';
-import { login } from '../auth.actions';
+import { login, logout } from '../auth.actions';
+import { state } from '@angular/animations';
 
 export const authFeatureKey = 'auth';
 
@@ -31,6 +32,7 @@ export const authReducer = createReducer(
     console.log(state);
     return {...state, user}
   }),
+  on(logout, state => ({...state, user: undefined}))
 );
 
 // export const reducers: ActionReducerMap<State> = {

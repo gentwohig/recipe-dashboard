@@ -57,7 +57,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatInputModule,
     MatSidenavModule,
     MatDividerModule,
-    AuthModule,
+    AuthModule.forRoot(),
     StoreModule.forRoot({ store: storeReducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: false }),
     EffectsModule.forRoot([StoreEffects]),
