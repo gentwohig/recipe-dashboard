@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store,select } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { selectIsLoggedIn, selectIsLoggedOut } from '../auth/auth.selectors';
-import { logout } from '../auth/auth.actions';
+import { login, logout } from '../auth/auth.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -17,14 +17,32 @@ export class NavbarComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  ngOnInit(): void {
-    this.isLoggedIn$ = this.store.select(selectIsLoggedIn)
-    this.isLoggedOut$ = this.store.select(selectIsLoggedOut)
-    this.store.subscribe((state: any) => console.log(state["auth"]))
+  ngOnInit() {
+
+    const userProfile = localStorage.getItem("user");
+
+    if (userProfile) {
+      this.store.dispatch(login({ user: JSON.parse(userProfile) }));
+    }
+
+    this.isLoggedIn$ = this.store
+      .pipe(
+        select(selectIsLoggedIn)
+      )
+
+    this.isLoggedOut$ = this.store
+      .pipe(
+        select(selectIsLoggedOut)
+      )
+    // this.store.subscribe((state: any) => console.log(state["auth"]))
   }
 
   logout() {
     this.store.dispatch(logout());
+  }
+
+  toggleDrawer(drawer: any) {
+    drawer.toggle()
   }
 
 }

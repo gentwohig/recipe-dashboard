@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'favorites-list', component: FavoritesListComponent },
   { path: 'recipe/:id', component: RecipeDetailsComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/recipe-list', pathMatch: 'full' },
   { path: '**', redirectTo: '/'}
 
 ];

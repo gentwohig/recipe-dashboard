@@ -8,6 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { AuthEffects } from './auth.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterModule } from "@angular/router";
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { AuthService } from './auth.service';
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
+    RouterModule.forChild([{ path: '', component: LoginComponent }]),
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.authReducer),
+    EffectsModule.forFeature([AuthEffects])
     // StoreModule.forRoot({state: authReducer})
     // StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers, authReducer),
     // StoreModule.forFeature({ store: authReducer }),
