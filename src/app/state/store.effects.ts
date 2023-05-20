@@ -8,6 +8,16 @@ import { loadRecipes, loadRecipesSuccess, loadRecipesFailure } from "./store.act
 
 @Injectable()
 export class StoreEffects {
+  // loadRecipes$ = createEffect(() => this.actions$.pipe(
+  //   ofType(loadRecipes),
+  //   mergeMap(() =>
+  //     from(this.FoodService.getFoodRecipes()).pipe(
+  //       map((recipes: any) => loadRecipesSuccess({ recipes })),
+  //       catchError((error) => of(loadRecipesFailure({ error: error })))
+  //     )
+  //   )
+
+  // ));
   loadRecipes$ = createEffect(() => this.actions$.pipe(
     ofType(loadRecipes),
     mergeMap(() =>

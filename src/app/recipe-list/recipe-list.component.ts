@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { selectAllRecipes } from '../state/store.selectors';
 import { loadRecipes } from '../state/store.actions';
 import { AppState } from '../state/app.state'
+import { Observable } from 'rxjs';
+import { FoodService } from '../services/food.service';
+
 
 
 @Component({
@@ -19,10 +22,13 @@ export class RecipeListComponent implements OnInit {
   display: boolean = true;
   searchParam = "";
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private foodService: FoodService) { }
 
   ngOnInit() {
     this.store.dispatch(loadRecipes());
+    const courses$ = this.foodService.getAllRecipes().subscribe(recipe => console.log(recipe));
+    console.log(courses$)
+
   }
 
   setSearch(value:string) {
